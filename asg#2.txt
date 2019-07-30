@@ -1,0 +1,24 @@
+<?php
+print
+    "<!DOCTYPE html>\n".
+    "<body>\n".
+    "<h1>Welcome to Assignment #2!</h1>";
+    
+    if (isset($_POST['name'])) {
+        print "Name Entered: ". $_POST['name'];
+        print "\n";
+        print "Home Town Entered: ". $_POST['hometown'];
+    }
+    else {
+        print
+            "<form action='asg2.php' method='post'> \n".
+            "Name: <input type='text' name='name'><br> \n".
+            "Home Town: <input type='text' name='hometown'<br> \n".
+            "<input type='submit'> \n".
+            "</form> \n";
+    }
+print        
+    "\n</body> \n".
+    "</html>";
+
+?>
