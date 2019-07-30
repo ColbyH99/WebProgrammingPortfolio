@@ -1,0 +1,108 @@
+<?php
+
+    require 'phpHelpers.php';
+    
+    printSimpleTop("Colby's Blog", "./css/asg5.css");
+    
+    print
+        "<h1 class='aHeader'>Colby Hayes' Blog</h1>";
+    
+    printButtonForm();
+    
+    // Checks if the Add item button has been pressed. If so, prints text box form
+    if(isset($_POST['btnAdd'])) {
+        printForm();
+    }
+    
+    // Checks if the remove all button has been pressed. If so, clears all of the entries. 
+    if(isset($_POST['btnRemove'])) {
+        clearAll();
+    }
+    
+    // Checks if the user has submitted a text entry. If so, writes the entry to the text file asg5.txt.
+    if(isset($_POST['blog'])) {
+        $myText = $_POST['blog'];
+        addEntry($myText);
+    }
+    
+    // Displays previous entries
+    displayEntries();
+    
+    // Prints the buttons btnAdd and btnRemove
+    function printButtonForm() {
+
+    print
+        "   <form class action='asg5.php' method='post'>\n".
+        "       <input type='submit' name='btnAdd' value='Add Item' >\n".
+        "       <input type='submit' name='btnRemove' value='Remove All' " .
+        "       onclick=\"return confirm('Are you sure you want to remove all blog items?')\">\n".
+        "   </form> \n";
+    }
+
+    // Prints the text box used to submit an entry
+    function printForm(){
+        print
+        "<form class='textBox' action='asg5.php' method='post'>".
+            "Blog Entry:<br>".
+            "<textarea rows='4' cols='50' name='blog' required class='mytext' maxlength='200'></textarea>".
+            "<br /><input type = 'submit' value = 'submit'>".
+        "</form>";
+    }
+    
+    // Receives: $myText
+    // Formats the entry made, and then appends it to $myFile
+    function addEntry($myText) {
+        // Get the current time
+        date_default_timezone_set("America/Chicago");
+
+        // Get the current date to put in the entry
+        $myDate = date("Y-m-d");
+        $myTime = date("h:i:sa");
+
+        // Format the date, the blog entry and a newline character
+        $myText = $myDate . " " . $myTime . " " . $myText . "\n";
+        $myFile = fopen('asg5.txt', 'a') or die ('Unable to open file!');
+        
+        $myText = $myText. "\n";
+        
+        fwrite($myFile, $myText);
+        fclose($myFile);
+    }
+    
+    // Displays asg5.txt
+    function displayEntries() {
+
+        if (!file_exists("asg5.txt")) {
+            print "";
+        
+            return;
+        }
+    
+        $myFile = fopen("asg5.txt", "r") or die("Unable to open file!");
+    
+        while (!feof($myFile)) {
+            $npString = fgets($myFile);
+            print "<br>" . $npString . "\n";
+        
+        }
+    
+        fclose($myFile);
+
+    }
+
+    // Clears all previous blog entries
+    function clearAll() {
+
+        if (file_exists("asg5.txt")) {
+            if (!unlink("asg5.txt")) {
+                print "Error deleting blog.txt";
+            }
+        }
+        else {
+            print "The file does not exist.";
+        }
+    }
+    
+    printBottom();
+    
+?>
