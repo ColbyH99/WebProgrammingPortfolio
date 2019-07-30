@@ -1,0 +1,25 @@
+.aBody {
+                background-color: #f2ffe6;
+           }
+           .aHeader {
+                padding: 10px;
+                border: 2px solid;
+                border-radius: 20px;
+                border-color: #06425C;
+                text-align: center;
+                color: #CDBB79;
+                background-color: #06425C;
+           }
+           .myInterests{
+               padding: 10px;
+               border: 2px solid;
+               border-radius: 20px;
+           }
+           .moreInterests {
+               padding: 10px;
+               border: 2px solid;
+               border-radius: 20px;
+           }
+           img {
+               float: right;
+           }
