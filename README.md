@@ -7,6 +7,14 @@ Asg #2: This assignment involved PHP for the first time. We explored printing in
 
 Asg #3: A simple assignment in which we had to redo our first homepage using PHP instead. Intended to get us used to printing in PHP and calling functions.
 
+Asg #4: Here we had to create a webpage that displayed our personal interests, using Bootstrap to format the content.
+
+Asg #5: A PHP file that creates a blog. You can add and remove blog entries using button forms and text forms. A great assignment that utilizes many functions. 
+
+Asg #7: In assignment 7 we created a carousel formatting of several images, meaning you click right or left to cycle through the provided images. 
+
+
+
 
 
 
