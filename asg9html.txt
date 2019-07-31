@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+		
+		<script type="text/javascript" class="init">
+		   $(document).ready(function() {
+			   $('#example').DataTable();
+		   });
+		</script>
+		
+        <title>Austin Movie Theatres</title>
+    
+        <style>
+            h1 { 
+				padding-top: 25px;
+				padding-bottom: 25px;
+				border: 2px solid;
+				border-radius: 15px;
+				align: center;
+				background-color: #ffff99
+			}
+        </style>
+	</head>
+	
+	<body>
+		<div class="container">
+		    <div class="row">
+		      <div class="col-md-10 col-md-offset-1">
+			     <h1 align="center"  class="color-green">Austin Movie Theatres</h1>
+			  </div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+                    
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Theatre Name</th>
+                                <th>Movie Title</th>
+                                <th>Movie Start Time</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Theatre Name</th>
+                                <th>Movie Title</th>
+                                <th>Movie Start Time</th>
+                            </tr>
+                        
+                        </tfoot>
+                        <tbody>
+                            <tr>
+                                <td>Violet Crown Austin</td>
+                                <td>Black Panther</td>
+                                <td>6:15pm</td>
+                            </tr>
+                            <tr>
+                                <td>Violet Crown Austin</td>
+                                <td>Black Panther</td>
+                                <td>9:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Violet Crown Austin</td>
+                                <td>Annihilation</td>
+                                <td>5:20pm</td>
+                            </tr>
+                            <tr>
+                                <td>Violet Crown Austin</td>
+                                <td>Annihilation</td>
+                                <td>9:20pm</td>
+                            </tr>
+                            <tr>
+                                <td>Violet Crown Austin</td>
+                                <td>Concert for George</td>
+                                <td>7:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>Black Panther</td>
+                                <td>7:20pm</td>
+                            </tr>
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>I, Tonya</td>
+                                <td>4:55pm</td>
+                            </tr>
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>I, Tonya</td>
+                                <td>6:50pm</td>
+                            </tr>
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>Game Night</td>
+                                <td>8:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Regal Cinemas Metropolitan 14</td>
+                                <td>Black Panther</td>
+                                <td>8:30pm</td>
+                            </tr>
+                            <tr>
+                                <td>Regal Cinemas Metropolitan 14</td>
+                                <td>Black Panther</td>
+                                <td>10:45pm</td>
+                            </tr>
+
+                            <tr>
+                                <td>Regal Cinemas Metropolitan 14</td>
+                                <td>Jumanji</td>
+                                <td>7:50pm</td>
+                            </tr>
+                                
+                            <tr>
+                                <td>Regal Cinemas Metropolitan 14</td>
+                                <td>Jumanji</td>
+                                <td>10:40pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>AMC Barton Creek Square</td>
+                                <td>Black Panther</td>
+                                <td>7:30pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>AMC Barton Creek Square</td>
+                                <td>Black Panther</td>
+                                <td>6:30pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>AMC Barton Creek Square</td>
+                                <td>Game Night</td>
+                                <td>7:00pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>AMC Barton Creek Square</td>
+                                <td>Jumanji</td>
+                                <td>7:50pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>Red Sparrow</td>
+                                <td>7:00pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Alamo Drafthouse South Lamar</td>
+                                <td>Red Sparrow</td>
+                                <td>10:25pm</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Regal Cinemas Metropolitan 14</td>
+                                <td>Death Wish</td>
+                                <td>7:15pm</td>
+                            </tr>
+                         </tbody>
+                    </table>
+				</div>
+			</div> <!-- /row -->
+
+		</div> <!-- /container -->
+	</body>
+</html>
