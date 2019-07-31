@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assignment #8 COSC 2328">
+    <meta name="author" content="Colby Hayes">
+    <link rel="stylesheet" type="text/css" href="./css/asg8-chayes3.css">
+    <script src="./js/asg8-chayes3.js"></script>
+
+    <title>Asg #8 Example</title>
+
+</head>
+
+<body>
+    <h1>Sample Javascript Page</h1>
+
+        <div class="mySpacing">Name:</div><input type='text' id='myName' maxlength="20">
+        <br /><div class="mySpacing">Phone:</div><input type='text' id='myPhone' maxlength="14">
+        <br /><div class="mySpacing">Email:</div><input type='text' id='myEmail' maxlength="20">
+        <br /><div class="mySpacing">Password:</div><input type='text' id='myPassword' maxlength="8">
+        <br /><div class="mySpacing"></div><button onclick="myValidate()">Submit</button>
+
+        <p id="msg"></p>
+
+</body>
+</html>
