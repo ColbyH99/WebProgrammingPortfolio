@@ -1,0 +1,105 @@
+<?php
+
+    print("<h2>Login</h2>");
+
+    include('../adodb519/adodb5/adodb.inc.php');
+    session_start();
+    require 'phpHelpers.php';
+    printSimpleTop("Session Example 1", "./css/asg10.css");
+    
+    $db = ADONewConnection('mysql'); // Create a connection handle to the local database 
+
+    // Open a connection -- pass in the localhost, username, 
+    //password and database name 
+    // 
+    $db->PConnect('localhost', // Local instance of MySQL 
+        'chayescr_phpUser', // Username 
+        'cosc2328', // Password 
+        'chayescr_cosc2328'); // Database name 
+
+    // Format and execute a SQL statement // 
+    $rs = $db->Execute('select userName, userPassword from users'); 
+
+    // Make sure we have results // 
+    if ($rs == false) { 
+        print "SQL select failed \n"; 
+    } 
+
+    else {     
+        // While rows are returned, store the values in local variables  // 
+        while (!$rs->EOF) { 
+            $user = $rs->fields['userName']; 
+            $password = $rs->fields['userPassword']; 
+            $rs->MoveNext(); 
+        } 
+    }
+    
+    
+   
+    
+    // Do we have a post with a userName and Password?
+    //
+    if (isset($_POST['btnLogin'])) {
+
+        // Get the userName and Password
+        //
+        $userName = $_POST['userName'];
+        $userPassword = $_POST['userPassword'];
+        $userPasswordHash = hash("sha256", $userPassword);
+        
+        
+        // Do not save the username and password in the session.
+        // Instead, authenticate and if username and password.
+        // Set a login value to 1 for logged in, and 0 for not logged in.
+        // In other words, 1 for when username and password are correct and
+        // 0 for when they are not correct.
+        if ($user == $userName and $password == $userPasswordHash) {
+            $_SESSION['loggedIn'] = 1;
+            print "<p>Log in successful!  Click <a href='./asg11Music.php'>here</a> to select a song </p> \n";
+        }
+
+        // Handle incorrect username and password case
+        else {
+            $_SESSION['loggedIn'] = 0;
+            print "<p>Login failed.  Try user: 'Lady Gaga' and password 'Secret'</p> \n";
+            printloginForm();
+        }
+    }
+
+    // If the Log Out button was pushed, then set the session to show logged Out
+    //
+    elseif (isset($_POST['btnLogout'])) {
+        $_SESSION['loggedIn'] = 0;
+        print("<p>The user is logged out.</p>");
+        printloginForm();
+    }
+
+    // If we don't have the username and password posted, print the login form
+    //
+    else {
+
+        printLoginForm();
+    }
+    
+    
+
+    printBottom();
+    
+    // -------------------------------------------------------
+    // Print the login form for userName and userPassword
+    // -------------------------------------------------------
+    function printloginForm() {
+    
+    print
+        "<div class='roundBorder'>" .
+        "   <form action='asg11Login.php' method='post'>\n" .
+        "       <div class='mySpacing'>Name:</div> <input type='text' name = 'userName' maxlength='20'></td>\n" .
+        "       <br /><div class='mySpacing'>Password:</div> <input type='text' name = 'userPassword' maxlength='8'></td> \n" .
+        "       <br /><div class='mySpacing'></div><input type='submit' name='btnLogin' value='Log In' ></td> \n ".
+        "       <input type='submit' name='btnLogout' value='Log Out'></td>\n".
+        "   </form> \n" .
+        "</div> \n";
+    
+    }
+
+?>

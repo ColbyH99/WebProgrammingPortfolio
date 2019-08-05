@@ -1,0 +1,86 @@
+<?php
+
+    include('../adodb519/adodb5/adodb.inc.php');
+    require 'phpHelpers.php';
+    session_start();
+    printSimpleTop("Session Example 3", "./css/asg10.css");
+
+    print "<h2>Check Out</h2> \n";
+    
+    $db = ADONewConnection('mysql'); // Create a connection handle to the local database 
+
+    // Open a connection -- pass in the localhost, username, 
+    //password and database name 
+    // 
+    $db->PConnect('localhost', // Local instance of MySQL 
+        'chayescr_phpUser', // Username 
+        'cosc2328', // Password 
+        'chayescr_cosc2328'); // Database name 
+
+    // Format and execute a SQL statement // 
+    $rs = $db->Execute('select songId, songName, artist, price from songs'); 
+    
+    // Make sure we have results // 
+    if ($rs == false) { 
+        print "SQL select failed \n"; 
+    } 
+    
+    else {     
+        // While rows are returned, store the values in local variables  // 
+        while (!$rs->EOF) { 
+            $songId = $rs->fields['songId'];
+            $price = $rs->fields['price']; 
+            $artist = $rs->fields['artist'];
+            $album = $rs->fields['songName'];
+            $tax = ($price * .10);
+            $total = $price + $tax;
+            
+            if($_POST['form'] == $songId){
+                print "Artist: $artist <br>";
+                print "Album: $album <br>";
+                print "Price: ";
+                echo money_format("$%i", $price);
+                print "<br>";
+                print "Tax: ";
+                echo money_format("$%i", $tax);
+                print "<br>";
+                print "Total: ";
+                echo money_format("$%i", $total);
+                break;
+            }
+            
+            $rs->MoveNext(); 
+            } 
+        }
+        
+    if (isset($_POST['btnLogout'])) {
+        $_SESSION['loggedIn'] = 0;
+        print("<p>The user is logged out.</p>");
+        
+    }
+    
+        
+         print "<p> Click <a href='./asg11Music.php'>here</a> to select a different song </p> \n";
+         printlogoutForm();
+        
+    
+    
+    if($_SESSION['loggedIn'] == 0){
+      print "<br>It appears you are not logged in.\n";
+      print "<br>Try to log in again.  Click: <a href='./asg11Login.php'>here</a> \n";
+  }
+  
+function printlogoutForm() {
+
+print
+    "<div class='roundBorder'>" .
+    "   <form action='asg11CheckOut.php' method='post'>\n" .
+    "       <input type='submit' name='btnLogout' value='Log Out'></td>\n".
+    "   </form> \n" .
+    "</div> \n";
+
+}
+
+  printBottom();
+    
+?>
