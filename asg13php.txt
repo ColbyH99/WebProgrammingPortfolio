@@ -1,0 +1,50 @@
+<?php
+
+    include('../adodb519/adodb5/adodb.inc.php');
+    
+    if (isset($_GET['choices'])) {
+        
+        $choice = $_GET['choices'];
+        printDBResults($choice);
+    }
+    
+    function printDBResults($choice)
+    {
+        // Open a connection to the database
+        //
+        $db = ADONewConnection('mysql'); // Create a connection handle to the local database
+        $db->PConnect('localhost',  // Host to connect to
+            'chayescr_phpUser',     // Database user name
+            'cosc2328',             // Password
+            'chayescr_cosc2328');   // Database
+            
+        $sql = "select id, description from $choice";
+        $rs = $db->Execute($sql);
+        
+        $id = "";
+        $description = "";
+        
+        // Make sure we have results
+        //
+        if ($rs == false) {
+            print_r($rs);
+            print "<br>SQL select failed \n";
+        }
+        else {
+            
+            // While rows are returned, store the values in local variables
+            //
+            while (!$rs->EOF) {
+                
+                $id = $rs->fields['id'];
+                $description = $rs->fields['description'];
+
+                print("<h4><br />$description </h4>");
+                $rs->MoveNext();
+            }
+		}
+
+    }
+        
+	
+?>

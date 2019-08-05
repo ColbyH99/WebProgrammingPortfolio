@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+ <html lang='en'>
+   <head>
+     <meta charset='utf-8'>
+     <title>Ajax Example</title>
+
+     <!-- Latest compiled and minified CSS -->
+ 	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+
+ 	<!-- Optional theme -->
+ 	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css'>
+   <link rel='stylesheet' type='text/css' href='./css/asg12.css'>
+ 	<!-- Latest compiled and minified JavaScript -->
+ 	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+   <script src='./js/asg13.js'></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script>
+        $(document).ready(function(){
+        $(".btn1").click(function(){
+        $("p").fadeOut()
+         });
+         $(".btn2").click(function(){
+        $("p").fadeIn();
+        });
+    });
+</script>
+
+   <style>
+       #choices {
+            width: 300px;
+       }
+       button {
+           margin-top: 10px;
+           margin-bottom: 10px;
+       }
+   </style>
+  </head>
+
+
+ <body>
+     <div class='container'>
+         <div class='row'>
+             <div class='col-md-10 col-md-offset-1'>
+                   <h1>Things To Do In Austin - Make A Selection</h1>
+                       <select name='choices' id ='choices' size = 4 >
+                            <option value='restaurants'> Restaurants </option>
+                            <option value='theatres'> Theatres </option>
+                            <option value='entertainment'> Entertainment</option>
+                        </select>
+                    <br><button type='button' onclick='showTable()'>Find</button>
+                    <button class="btn1">Fade out</button>
+                    <button class="btn2">Fade in</button>
+                    <p id='myAustin'>
+                        Items will be listed here...
+                    </p>
+                    
+               </div>
+           </div>
+       </div>
+ </body>
+</html>
