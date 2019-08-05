@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="./css/asg12.css">
+</head>
+
+<body>
+
+<h1>SEU Google Maps API Page</h1>
+    <div id="map"></div>
+    <br />
+    <div id="mapText">
+        <h4>Mount Bonnel, Austin, Texas</h4>
+        Mount Bonnel, also known as Covert Park is a tourist destination along the Colorado River in Austin, Texas. 
+        Mount Bonnel has been a tourist destination since the 1850's. 
+        The mount provides a view of downtown Austin, as well as the Colorado River. 
+        Mount Bonnel is the highest point in Austin, Texas. 
+
+    </div>
+    <script>
+
+        <!-- Create a map -->
+        var map;
+
+        <!-- Latitude and longtitude for Mt. Bonnel, Austin, Tx -->
+        var myLatLng = {lat: 30.320762, lng: -97.77334};
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: myLatLng,
+            zoom: 12
+            });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'SEU'
+        });
+
+
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfgivY7PbxRcCmqkRBmNrq6LXfJkh2fWA&callback=initMap"
+    async defer></script>
+
+</body>
+</html>
