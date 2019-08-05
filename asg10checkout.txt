@@ -1,0 +1,71 @@
+<?php
+
+    require 'phpHelpers.php';
+    session_start();
+    printSimpleTop("Session Example 3", "./css/asg10.css");
+
+    print "<h2>Check Out</h2> \n";
+
+    if (isset($_POST['btnLogout'])) {
+        $_SESSION['loggedIn'] = 0;
+        print("<p>The user is logged out.</p>");
+        
+    }
+    
+    // Is the loggedIn session variable set?
+    if ($_SESSION['loggedIn'] == 1) {
+        if($_POST['songs'] == "ladyGaga") {
+            print 'Artist: Lady Gaga <br>';
+            print 'Price:  $1.00 <br>';
+            print 'Tax:    $0.10 <br>';
+            print 'Total:  $1.10';
+        }
+        
+        if($_POST['songs'] == "taylorSwift")
+        {
+            print 'Artist: Taylor Swift <br>';
+            print 'Price:  $2.00 <br>';
+            print 'Tax:    $0.20 <br>';
+            print 'Total:  $2.20';
+        }
+        
+        if($_POST['songs'] == "asleepAtTheWheel")
+        {
+            print 'Artist: Asleep At The Wheel <br>';
+            print 'Price:  $3.00 <br>';
+            print 'Tax:    $0.30 <br>';
+            print 'Total:  $3.30';
+        }
+        
+        if($_POST['songs'] == "groupFantasma")
+        {
+            print 'Artist: Groupo Fantasma <br>';
+            print 'Price:  $4.00 <br>';
+            print 'Tax:    $0.40 <br>';
+            print 'Total:  $4.40';
+        }
+        
+         print "<p> Click <a href='./asg10Music.php'>here</a> to select a different song </p> \n";
+         printlogoutForm();
+        
+    }
+    
+    else {
+      print "<br>It appears you are not logged in.\n";
+      print "<br>Try to log in again.  Click: <a href='./asg10Login.php'>here</a> \n";
+  }
+  
+function printlogoutForm() {
+
+print
+    "<div class='roundBorder'>" .
+    "   <form action='asg10CheckOut.php' method='post'>\n" .
+    "       <input type='submit' name='btnLogout' value='Log Out'></td>\n".
+    "   </form> \n" .
+    "</div> \n";
+
+}
+
+  printBottom();
+    
+?>
